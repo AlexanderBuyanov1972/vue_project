@@ -7,6 +7,7 @@
     </div>
     <div class="post_btn">
       <my-button @click="$emit('delete', post)">Удалить</my-button>
+      <my-button @click="$router.push(`/posts/${post.id}`)">Открыть</my-button>
     </div>
   </div>
 </template>
@@ -26,6 +27,7 @@ export default {
 .post_btn {
   padding: 0px;
   margin: 0px;
+  display: flex ;
 }
 .post {
   padding: 15px;
@@ -35,4 +37,5 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+
 </style>
