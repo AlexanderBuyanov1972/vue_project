@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Страница с постами</h1>
-    <my-input v-model="searchQuery" placeholder="Search..." />
+    <my-input v-focus v-model="searchQuery" placeholder="Search..." />
     <div class="app_btns">
       <my-button @click="showDialog" class="btn">Создать пост</my-button>
       <my-select v-model="selectedSort" :options="sortOptions" />
@@ -15,7 +15,8 @@
       v-if="!isPostsLoading"
     />
     <div v-else>Идёт загрузка...</div>
-    <div ref="observer" class="observer"></div>
+    <!-- <div ref="observer" class="observer"></div> -->
+    <div v-intersection="loadMorePosts" class="observer"></div>
     <!-- <div class="page-wrapper">
       <div
         v-for="pageNumber in totalPages"
@@ -127,20 +128,20 @@ export default {
   mounted() {
     this.fetchPosts();
     console.log(this.$refs.observer);
-    const options = {
-      // root: document.querySelector("#scrollArea"),
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const callback = (entries, observer) => {
-      // console.log('ПЕРЕСЕЧЕНИЕ')
-      // console.log(entries)
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts();
-      }
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    // const options = {
+    //   // root: document.querySelector("#scrollArea"),
+    //   rootMargin: "0px",
+    //   threshold: 1.0,
+    // };
+    // const callback = (entries, observer) => {
+    //   // console.log('ПЕРЕСЕЧЕНИЕ')
+    //   // console.log(entries)
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts();
+    //   }
+    // };
+    // const observer = new IntersectionObserver(callback, options);
+    // observer.observe(this.$refs.observer);
   },
   // вычислитель свойств computed, называем функцию как угодно
   computed: {
