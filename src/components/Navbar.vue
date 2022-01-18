@@ -3,7 +3,15 @@
     <div @click="$router.push('/')">Vue 3</div>
     <div class="btn_navbar">
       <my-button @click="$router.push('/posts')">Posts</my-button>
-      <my-button @click="$router.push('/about')" style="margin-left:20px">About</my-button>
+      <my-button @click="$router.push('/composition')" style="margin-left: 20px"
+        >PostsAPI</my-button
+      >
+      <my-button @click="$router.push('/about')" style="margin-left: 20px"
+        >About</my-button
+      >
+      <my-button @click="$router.push('/store')" style="margin-left: 20px"
+        >Store</my-button
+      >
     </div>
   </div>
 </template>

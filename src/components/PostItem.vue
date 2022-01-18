@@ -27,7 +27,7 @@ export default {
 .post_btn {
   padding: 0px;
   margin: 0px;
-  display: flex ;
+  display: flex;
 }
 .post {
   padding: 15px;
@@ -37,5 +37,4 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
-
 </style>
